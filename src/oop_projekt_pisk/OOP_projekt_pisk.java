@@ -16,7 +16,7 @@ public class OOP_projekt_pisk {
 
      
     public static void main(String[] args) {
-        Hra piskvorky = new Hra(20,5);
+        Hra piskvorky = new Hra(15,3);
         Hrac hrac1 = piskvorky.setHrac1("Lucka");
         piskvorky.setHrac2("Pavel");
         piskvorky.setPrvniHraje(hrac1);

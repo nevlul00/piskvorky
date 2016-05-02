@@ -14,6 +14,8 @@ import java.awt.Color;
 public class Hrac {     //třída, která přiřadí hráči jméno a daný barva(X/O)
 
     private String jmeno;
+
+   
     private int skore;
     private Color barva;
 
@@ -21,6 +23,9 @@ public class Hrac {     //třída, která přiřadí hráči jméno a daný barv
         jmeno = jmenoVstup;
         barva = znakVstup;
         skore = 0;
+    }
+    public String getJmeno() {
+        return jmeno;
     }
 
     public Color getBarva() {

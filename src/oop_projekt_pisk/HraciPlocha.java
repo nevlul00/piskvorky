@@ -19,7 +19,7 @@ import javax.swing.JPanel;
 public class HraciPlocha extends JPanel {
 
     private Hra logika;
-    private int velikostPolicka = 14;
+    private int velikostPolicka = 25;
 
     public HraciPlocha(Hra logika) {
         this.logika = logika;
