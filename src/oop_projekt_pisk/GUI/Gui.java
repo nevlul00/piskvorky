@@ -17,10 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 import oop_projekt_pisk.Hra;
-import oop_projekt_pisk.Hrac;
-import oop_projekt_pisk.Znaky;
 
 /**
  *

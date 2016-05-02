@@ -5,28 +5,56 @@
  */
 package oop_projekt_pisk;
 
-import javax.swing.JButton;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Lucie
  */
-public class HraciPlocha { // jedno tlacitko, plocha cela
+public class HraciPlocha extends JPanel {
 
-    JButton pole;
+    private Hra logika;
+    private int velikostPolicka = 14;
 
-    private int[][] plocha;
-    private int velikost;
+    public HraciPlocha(Hra logika) {
+        this.logika = logika;
+        Dimension rozmery = new Dimension(logika.getVelikostHraciPlochy() * velikostPolicka, logika.getVelikostHraciPlochy() * velikostPolicka);
+        setPreferredSize(rozmery);
+        addMouseListener(new PosluchacTahu());
 
-    /**
-     * 
-     * @param velikost 
-     */
-    public HraciPlocha(int velikost) {
-        this.velikost = velikost;
-        plocha = new int[velikost][velikost];
-        //pole = new JButton();
+    }
 
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        for (int x = 0; x < logika.getVelikostHraciPlochy(); x++) {
+            for (int y = 0; y < logika.getVelikostHraciPlochy(); y++) {
+                Hrac pole = logika.getPole(x, y);
+                if (pole != null) {
+                    g.setColor(pole.getBarva());
+                    g.fillOval(x * velikostPolicka+2, y * velikostPolicka+2, velikostPolicka-4, velikostPolicka-4);
+                }
+                g.setColor(Color.black);
+                g.drawRect(x * velikostPolicka, y * velikostPolicka, velikostPolicka, velikostPolicka);
+            }
+        }
+
+    }
+
+    public class PosluchacTahu extends MouseAdapter {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            int x = e.getX() / velikostPolicka;
+            int y = e.getY() / velikostPolicka;
+            logika.udelejTah(x, y);
+            repaint(); /// prekresleni cele hraci plochy
+        }
     }
 
 }

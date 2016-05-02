@@ -5,23 +5,25 @@
  */
 package oop_projekt_pisk;
 
+import java.awt.Color;
+
 /**
  *
  * @author Lucie
  */
-public class Hrac {     //třída, která přiřadí hráči jméno a daný znak(X/O)
+public class Hrac {     //třída, která přiřadí hráči jméno a daný barva(X/O)
 
     private String jmeno;
     private int skore;
-    private Znaky znak;
+    private Color barva;
 
-    public Hrac(String jmenoVstup, Znaky znakVstup) {    //Konstruktor, který vytvoří hráče s daným jménem a znakem
+    public Hrac(String jmenoVstup, Color znakVstup) {    //Konstruktor, který vytvoří hráče s daným jménem a znakem
         jmeno = jmenoVstup;
-        znak = znakVstup;
+        barva = znakVstup;
         skore = 0;
     }
 
-    public Znaky getZnak() {
-        return znak;
+    public Color getBarva() {
+        return barva;
     }
 }

@@ -5,6 +5,8 @@
  */
 package oop_projekt_pisk;
 
+import java.awt.Color;
+
 /**
  *
  * @author Lucie
@@ -52,7 +54,7 @@ public class Hra { // logika
      * @return 
      */
     public Hrac setHrac1(String jmeno) {
-        hrac1 = new Hrac(jmeno, Znaky.krizek); // hrac jedna bude mit automaticky koelcko
+        hrac1 = new Hrac(jmeno, Color.blue); // hrac jedna bude mit automaticky koelcko
         return hrac1;
     }
 
@@ -64,7 +66,7 @@ public class Hra { // logika
      * @return 
      */
     public Hrac setHrac2(String jmeno) {
-        hrac2 = new Hrac(jmeno, Znaky.kolecko);
+        hrac2 = new Hrac(jmeno, Color.red);
         return hrac2;
     }
 
@@ -73,15 +75,16 @@ public class Hra { // logika
     }
 
     public void udelejTah(int x, int y) {
-       /* if (hraciPlocha[x][y] != null) {
-            throw new Exception("Tady už nesmíš hrát");
-        }*/
         hraciPlocha[x][y] = jeNaRade;
         if (jeNaRade == hrac1) {
             jeNaRade = hrac2;
         } else {
             jeNaRade = hrac1;
         }
+    }
+    
+    public Hrac getPole(int x, int y){
+        return hraciPlocha[x][y];
     }
     
    /* public void pocetZnaku(){
