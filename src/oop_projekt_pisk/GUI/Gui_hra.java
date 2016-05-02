@@ -110,7 +110,7 @@ public class Gui_hra extends JPanel {
                 break;
         }
         tl.setEnabled(false);
-
+        System.out.println("");
     }
 
     class KliknutiNaTlacitko extends MouseAdapter {
